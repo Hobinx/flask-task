@@ -49,14 +49,14 @@ def login():
 def tasks():
     g.db = connect_db()
     cursor = g.db.cursor()
-    g.execute(
+    cursor.execute(
         'SELECT name, due_date, priority, task_id FROM tasks WHERE status=1'
     )
     open_tasks = [
         dict(name=row[0], due_date=row[1], priority=row[2], task_id=row[3])
         for row in cursor.fetchall()
     ]
-    g.execute(
+    cursor.execute(
         'SELECT name, due_date, priority, task_id FROM tasks WHERE status=0'
     )
     closed_tasks = [
