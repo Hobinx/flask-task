@@ -7,6 +7,7 @@ from flask import Flask, flash, redirect, render_template, \
 app = Flask(__name__)
 app.config.from_object('_config')
 
+
 def connect_db():
     return sqlite3.connect(app.config['DATABASE_PATH'])
 
@@ -33,7 +34,7 @@ def logout():
 def login():
     if request.method == 'POST':
         if request.form['username'] != app.config['USERNAME'] \
-            or request.form['password'] != app.config['PASSWORD']:
+                or request.form['password'] != app.config['PASSWORD']:
             error = 'Invalid Credentials. Please try again.'
             return render_template('login.html', error=error)
         else:
