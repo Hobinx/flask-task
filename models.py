@@ -1,5 +1,5 @@
 from views import db
-
+import datetime
 
 class Task(db.Model):
     __tablename__ = "tasks"
