@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to FlaskTaskr!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <title>Welcome to FlaskTaskr!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
-    <div class="page">
-        {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-        {% endfor %}
+  <div class="page">
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
 
-        {% if error %}
-            <div class="error"><strong>Error:</strong> {{ error }}</div>
-        {% endif %}
+    {% if error %}
+      <div class="error"><strong>Error:</strong> {{ error }}</div>
+    {% endif %}
 
-        <br>
+    <br>
 
-        {% block content %}
-        {% endblock %}
-    </div>
+    {% block content %}
+    {% endblock %}
+  </div>
 </body>
 </html>
